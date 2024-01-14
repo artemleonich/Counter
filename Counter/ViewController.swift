@@ -8,15 +8,24 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var buttonTouch: UIButton!
     @IBOutlet weak var textCount: UILabel!
-    @IBOutlet weak var countButton: UIButton!
+    var countNumber: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateTrrr()
+        
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func clickButton(_ sender: Any) {
-        print("Нажатие")
+    
+    @IBAction func updateButton(_ sender: Any) {
+        countNumber += 1
+        updateTrrr()
+    }
+    
+    func updateTrrr() {
+        textCount.text = "Значение счётчика: \(countNumber)"
     }
     
 }

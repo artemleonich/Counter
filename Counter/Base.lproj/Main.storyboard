@@ -19,18 +19,18 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5M-uT-Keo">
                                 <rect key="frame" x="90" y="571" width="195" height="96"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="G1P-yY-yLm"/>
+                                    <constraint firstAttribute="height" constant="96" id="5Gj-3V-UJW"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <action selector="clickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dPw-4q-tYp"/>
+                                    <action selector="updateButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k0z-Tx-rH5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение счётчика: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbT-16-9ek">
-                                <rect key="frame" x="103" y="163" width="182" height="62"/>
+                                <rect key="frame" x="103" y="163" width="246" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="62" id="x1Q-ak-X8d"/>
+                                    <constraint firstAttribute="height" constant="62" id="N4n-Jl-HxK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -40,17 +40,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j5M-uT-Keo" secondAttribute="bottom" constant="151" id="51m-sC-BHJ"/>
-                            <constraint firstItem="j5M-uT-Keo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="LNs-EU-zPO"/>
-                            <constraint firstItem="pbT-16-9ek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="Teh-4Q-700"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pbT-16-9ek" secondAttribute="trailing" constant="108" id="tXl-CE-YGh"/>
-                            <constraint firstItem="pbT-16-9ek" firstAttribute="trailing" secondItem="j5M-uT-Keo" secondAttribute="trailing" id="uZM-FY-4X8"/>
-                            <constraint firstItem="pbT-16-9ek" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="yTH-ge-QZy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j5M-uT-Keo" secondAttribute="bottom" constant="151" id="Ag7-j3-kPj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j5M-uT-Keo" secondAttribute="trailing" constant="108" id="MXO-FE-vcO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pbT-16-9ek" secondAttribute="trailing" constant="44" id="TYr-fJ-fG5"/>
+                            <constraint firstItem="pbT-16-9ek" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="gNF-55-dpa"/>
+                            <constraint firstItem="pbT-16-9ek" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="104" id="kTp-v1-rxL"/>
+                            <constraint firstItem="j5M-uT-Keo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="xVe-AC-Zob"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="countButton" destination="j5M-uT-Keo" id="1IL-WM-S48"/>
-                        <outlet property="textCount" destination="pbT-16-9ek" id="Uix-xb-Sh6"/>
+                        <outlet property="buttonTouch" destination="j5M-uT-Keo" id="ngb-TX-boY"/>
+                        <outlet property="textCount" destination="pbT-16-9ek" id="HHA-CU-S7k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
