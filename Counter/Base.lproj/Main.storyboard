@@ -63,6 +63,14 @@
                                     <action selector="deletAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YdY-92-3Ve"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Some text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A6D-Bq-HYr">
+                                <rect key="frame" x="67" y="213" width="240" height="341"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,6 +93,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonTouch" destination="j5M-uT-Keo" id="ngb-TX-boY"/>
+                        <outlet property="historyText" destination="A6D-Bq-HYr" id="Ugl-o8-ddT"/>
                         <outlet property="minusButton" destination="bEF-tk-mpx" id="q9G-W8-bd6"/>
                         <outlet property="plusButon" destination="FSu-oA-eLr" id="8fw-l8-BPH"/>
                         <outlet property="resetButton" destination="FqI-EE-2j7" id="HiF-IK-MnU"/>
@@ -97,6 +106,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
