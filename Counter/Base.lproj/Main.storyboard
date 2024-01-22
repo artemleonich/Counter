@@ -44,7 +44,7 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="deletAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YdY-92-3Ve"/>
+                                    <action selector="deleteAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zUP-oy-Y30"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="История изменений" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A6D-Bq-HYr">
@@ -92,7 +92,7 @@
                     <connections>
                         <outlet property="historyText" destination="A6D-Bq-HYr" id="Ugl-o8-ddT"/>
                         <outlet property="minusButton" destination="bEF-tk-mpx" id="q9G-W8-bd6"/>
-                        <outlet property="plusButon" destination="FSu-oA-eLr" id="8fw-l8-BPH"/>
+                        <outlet property="plusButton" destination="FSu-oA-eLr" id="EOB-p3-iIj"/>
                         <outlet property="resetButton" destination="FqI-EE-2j7" id="HiF-IK-MnU"/>
                         <outlet property="textCount" destination="pbT-16-9ek" id="HHA-CU-S7k"/>
                     </connections>
