@@ -10,27 +10,27 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: - Outlets
     
+    /// Начальное значение счётчика.
+    private var countNumber: Int = 0
+    /// Строка, содержащая историю изменений счётчика.
+    private var history: String = "История изменений:\n"
+    
     /// Текстовое поле для отображения истории изменений счётчика.
-    @IBOutlet var historyText: UITextView!
+    @IBOutlet private var historyText: UITextView!
     /// Кнопка для уменьшения значения счётчика.
-    @IBOutlet var minusButton: UIButton!
+    @IBOutlet private var minusButton: UIButton!
     /// Кнопка для увеличения значения счётчика.
-    @IBOutlet var plusButton: UIButton!
+    @IBOutlet private var plusButton: UIButton!
     /// Кнопка для сброса значения счётчика и истории.
-    @IBOutlet var resetButton: UIButton!
+    @IBOutlet private var resetButton: UIButton!
     /// Текстовое поле для отображения текущего значения счётчика.
-    @IBOutlet var textCount: UILabel!
+    @IBOutlet private var textCount: UILabel!
     
     // MARK: - Свойства
     
-    /// Начальное значение счётчика.
-    var countNumber: Int = 0
-    /// Строка, содержащая историю изменений счётчика.
-    var history: String = "История изменений:\n"
-    
     // MARK: - Жизненный цикл приложения
     
-    /// Вызывается после загрузки viewконтроллера.
+    /// Вызывается после загрузки view контроллера.
     override func viewDidLoad() {
         super.viewDidLoad()
         counterUpdater()
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     
     /// Обновляет историю изменений счётчика.
     /// - Parameter message: Сообщение, описывающее последнее изменение.
-    func updateHistory(with message: String) {
+    private func updateHistory(with message: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
         let dateString = dateFormatter.string(from: Date())
@@ -50,13 +50,20 @@ class ViewController: UIViewController {
     }
     
     // Обновляет пользовательский интерфейс с текущим значением счётчика.
-    func counterUpdater() {
+    private func counterUpdater() {
         textCount.text = "Значение счётчика: \(countNumber)"
+    }
+    
+    // Добавляет вибро-отклик кнопкам.
+    private func generateFeedback() {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator.impactOccurred()
     }
     
     /// Вызывается при нажатии на кнопку сброса. Обнуляет счётчик и обновляет историю.
     /// - Parameter sender: Объект, инициирующий действие.
-    @IBAction func deleteAll(_ sender: Any) {
+    @IBAction private func deleteAll(_ sender: Any) {
+        generateFeedback()
         countNumber = 0
         counterUpdater()
         updateHistory(with: "значение сброшено")
@@ -64,7 +71,8 @@ class ViewController: UIViewController {
     
     /// Увеличивает счётчик на 1 при нажатии на кнопку "+".
     /// - Parameter sender: Объект, инициирующий действие.
-    @IBAction func addNumber(_ sender: Any) {
+    @IBAction private func addNumber(_ sender: Any) {
+        generateFeedback()
         countNumber += 1
         counterUpdater()
         updateHistory(with: "значение изменено на +1")
@@ -72,7 +80,8 @@ class ViewController: UIViewController {
     
     /// Уменьшает счётчик на 1 при нажатии на кнопку "-".
     /// - Parameter sender: Объект, инициирующий действие.
-    @IBAction func minusNumber(_ sender: Any) {
+    @IBAction private func minusNumber(_ sender: Any) {
+        generateFeedback()
         if countNumber > 0 {
             countNumber -= 1
             counterUpdater()
