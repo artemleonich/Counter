@@ -29,10 +29,29 @@ protocol KeyValueStore {
     func set(_ value: Int, forKey key: String)
 }
 
-extension UserDefaults: KeyValueStore {
-    func integer(forKey key: String) -> Int { self.integer(forKey: key) }
-    func set(_ value: Int, forKey key: String) { self.set(value, forKey: key) }
-}
+// ``UserDefaults`` already provides ``integer(forKey:)`` and ``set(_:forKey:)``
+// with exactly the required signatures, so we get conformance for free by
+// declaring the protocol adoption with an empty extension body.
+//
+// IMPORTANT — DO NOT add explicit method bodies here. Earlier versions of
+// this file did:
+//
+//   extension UserDefaults: KeyValueStore {
+//       func integer(forKey key: String) -> Int { self.integer(forKey: key) }
+//       func set(_ value: Int, forKey key: String) { self.set(value, forKey: key) }
+//   }
+//
+// which appears harmless but is actually infinitely recursive: inside the
+// body of a protocol-extension method, ``self.integer(forKey:)`` dispatches
+// through the protocol witness table and re-enters the extension method
+// instead of calling ``UserDefaults.integer(forKey:)``. Production
+// ``CounterStore()`` (which uses ``UserDefaults.standard``) would stack
+// overflow on the very first ``init`` — i.e. on app launch.
+//
+// The regression test in ``CounterTests/CounterTests.swift`` exercises this
+// conformance via the protocol witness so this class of bug cannot be
+// re-introduced silently.
+extension UserDefaults: KeyValueStore {}
 
 final class CounterStore {
     /// User-facing cap; oldest entries are dropped when this is exceeded.
