@@ -16,6 +16,8 @@
 		5323E9652B544CD100087789 /* CounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323E9642B544CD100087789 /* CounterTests.swift */; };
 		5323E96F2B544CD100087789 /* CounterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323E96E2B544CD100087789 /* CounterUITests.swift */; };
 		5323E9712B544CD100087789 /* CounterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323E9702B544CD100087789 /* CounterUITestsLaunchTests.swift */; };
+		0A67965401D48940B7C89924 /* HistoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5D5F2688E7F3EB49B3B96 /* HistoryEntry.swift */; };
+		C2E3B6696BB97F0606C52CBC /* CounterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D919610402E637E8DD13E84D /* CounterStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		5323E96A2B544CD100087789 /* CounterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CounterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5323E96E2B544CD100087789 /* CounterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterUITests.swift; sourceTree = "<group>"; };
 		5323E9702B544CD100087789 /* CounterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E5F5D5F2688E7F3EB49B3B96 /* HistoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEntry.swift; sourceTree = "<group>"; };
+		D919610402E637E8DD13E84D /* CounterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				5323E94D2B544CCF00087789 /* AppDelegate.swift */,
+				29EAEAC571EDE7CCD644CF93 /* Models */,
 				5323E94F2B544CCF00087789 /* SceneDelegate.swift */,
+				3EAA71BD8282C242B6E480C2 /* Stores */,
 				5323E9512B544CCF00087789 /* ViewController.swift */,
 				5323E9532B544CCF00087789 /* Main.storyboard */,
 				5323E9562B544CD000087789 /* Assets.xcassets */,
@@ -125,6 +131,22 @@
 				5323E9702B544CD100087789 /* CounterUITestsLaunchTests.swift */,
 			);
 			path = CounterUITests;
+			sourceTree = "<group>";
+		};
+		29EAEAC571EDE7CCD644CF93 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5F5D5F2688E7F3EB49B3B96 /* HistoryEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3EAA71BD8282C242B6E480C2 /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				D919610402E637E8DD13E84D /* CounterStore.swift */,
+			);
+			path = Stores;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +282,9 @@
 			files = (
 				5323E9522B544CCF00087789 /* ViewController.swift in Sources */,
 				5323E94E2B544CCF00087789 /* AppDelegate.swift in Sources */,
+				0A67965401D48940B7C89924 /* HistoryEntry.swift in Sources */,
 				5323E9502B544CCF00087789 /* SceneDelegate.swift in Sources */,
+				C2E3B6696BB97F0606C52CBC /* CounterStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
