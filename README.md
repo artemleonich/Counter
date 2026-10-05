@@ -1,12 +1,11 @@
-<p align="center">
-  <img src=".github/assets/banner.svg" width="100%" alt="Counter" />
-</p>
+<h1 align="center">Counter</h1>
 
-# Counter
+<p align="center">
+  <img src=".github/assets/stack.svg" height="28" alt="Swift · UIKit · iOS" />
+</p>
 
 iOS-счётчик с историей действий и сохранением состояния между запусками.
 
-**Swift · UIKit · UserDefaults · JSON · XCTest**  
 [Запуск](#запуск) · [Хранение данных](#хранение-данных) · [English](#english)
 
 ## Возможности
