@@ -1,7 +1,7 @@
 <h1 align="center">Counter</h1>
 
 <p align="center">
-  <img src=".github/assets/stack.svg" height="28" alt="Swift · UIKit · iOS" />
+  <a href=".github/assets/light/stack.svg#gh-light-mode-only"><img src=".github/assets/light/stack.svg" height="28" alt="Swift · UIKit · iOS" /></a><a href=".github/assets/stack.svg#gh-dark-mode-only"><img src=".github/assets/stack.svg" height="28" alt="Swift · UIKit · iOS" /></a>
 </p>
 
 iOS-счётчик с историей действий и сохранением состояния между запусками.
