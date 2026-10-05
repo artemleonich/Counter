@@ -1,139 +1,78 @@
+<p align="center">
+  <img src=".github/assets/banner.svg" width="100%" alt="Counter" />
+</p>
+
 # Counter
 
-**[Русский](#русский) | [English](#english)**
+iOS-счётчик с историей действий и сохранением состояния между запусками.
 
----
+**Swift · UIKit · UserDefaults · JSON · XCTest**  
+[Запуск](#запуск) · [Хранение данных](#хранение-данных) · [English](#english)
 
-## Русский
+## Возможности
 
-### Описание
+- Увеличение и уменьшение значения на 1, сброс до нуля.
+- Защита от отрицательного значения с записью попытки в историю.
+- Журнал действий с датой и временем, доступный для чтения и выделения текста.
+- Сохранение числа и последних **1000 записей** истории между запусками.
+- Тактильный отклик при нажатии кнопок.
 
-Counter — iOS-приложение «Счётчик», написанное на Swift с использованием UIKit. Позволяет увеличивать, уменьшать и сбрасывать значение счётчика. Все изменения фиксируются в журнале истории с указанием даты и времени. Приложение не допускает уменьшения счётчика ниже нуля.
+## Запуск
 
-### Возможности
-
-- Увеличение счётчика на 1 (кнопка «+»)
-- Уменьшение счётчика на 1 (кнопка «−»), с защитой от отрицательных значений
-- Сброс счётчика до 0
-- Журнал истории изменений с метками времени
-- Тактильная обратная связь (вибро-отклик) при нажатии кнопок
-- Автоматическая прокрутка журнала истории
-
-### Технологии
-
-- Swift
-- UIKit
-- Xcode
-- Interface Builder (Storyboard)
-- XCTest (Unit- и UI-тесты)
-
-### Структура проекта
-
-```
-Counter/
-├── Counter/
-│   ├── AppDelegate.swift       # Делегат приложения
-│   ├── SceneDelegate.swift     # Делегат сцены
-│   ├── ViewController.swift    # Основной контроллер со счётчиком
-│   ├── Assets.xcassets/        # Ресурсы (иконки, изображения)
-│   ├── Base.lproj/             # Storyboard
-│   └── Info.plist              # Конфигурация приложения
-├── CounterTests/               # Unit-тесты
-├── CounterUITests/             # UI-тесты
-└── Counter.xcodeproj/          # Файл проекта Xcode
-```
-
-### Требования
-
-- iOS 13.0+
-- Xcode 15.0+
-- Swift 5.0+
-
-### Установка и запуск
-
-Клонируйте репозиторий:
+Нужны **macOS, Xcode с iOS SDK 17.2 или новее**. Проект использует Swift 5; текущий deployment target — **iOS 17.2**.
 
 ```bash
 git clone https://github.com/artemleonich/Counter.git
-```
-
-Откройте проект в Xcode:
-
-```bash
 cd Counter
 open Counter.xcodeproj
 ```
 
-Выберите симулятор или подключённое устройство и нажмите **Run** (⌘R).
+Выберите схему **Counter**, симулятор и нажмите **Run** (⌘R). В проекте настроена поддержка iPhone и iPad.
 
-### Автор
+Для физического устройства выберите свою команду в **Signing & Capabilities**.
 
-Артём — [GitHub](https://github.com/artemleonich)
+## Хранение данных
 
----
+[CounterStore](Counter/Stores/CounterStore.swift) отвечает за состояние:
+
+| Данные | Хранилище |
+| --- | --- |
+| Значение счётчика | `UserDefaults`, ключ `Counter.countNumber` |
+| История | `counter_history.json` в Application Support |
+| Запись истории | `HistoryEntry`: дата и текст действия |
+
+История сериализуется через `Codable` и записывается атомарно. При превышении 1000 записей удаляются самые старые. Контроллер обновляет интерфейс и передаёт действия хранилищу.
+
+## Структура
+
+```text
+Counter/
+├── ViewController.swift     # интерфейс и действия
+├── Stores/CounterStore.swift
+├── Models/HistoryEntry.swift
+├── Base.lproj/              # главный экран и launch screen
+├── Assets.xcassets/         # иконка и ресурсы
+├── AppDelegate.swift
+├── SceneDelegate.swift
+└── Info.plist
+CounterTests/                # проверки хранилища
+CounterUITests/              # запуск и измерение запуска приложения
+Counter.xcodeproj/
+```
+
+## Проверки
+
+В `CounterTests` есть проверки изменения и восстановления значения, границы нуля, сохранения и лимита истории, обработки отсутствующего или повреждённого JSON, форматирования и работы с `UserDefaults`.
+
+Чтобы запустить тесты, откройте проект, выберите симулятор и нажмите **Test** (⌘U). UI-тесты проверяют запуск приложения и измеряют время запуска.
 
 ## English
 
-### Description
+An iOS counter built with Swift and UIKit. Increment, decrement and reset the value; attempts to go below zero are recorded in the timestamped history. Button taps provide haptic feedback.
 
-Counter is an iOS app built with Swift and UIKit. It allows users to increment, decrement, and reset a counter value. All changes are logged in a history journal with timestamps. The app prevents the counter from going below zero.
+The count is stored in UserDefaults, while the latest 1,000 history entries are saved as JSON in Application Support. Open `Counter.xcodeproj`, choose the Counter scheme and a simulator, then press ⌘R. The current deployment target is iOS 17.2. Run the included tests with ⌘U.
 
-### Features
+## Автор / Author
 
-- Increment counter by 1 ("+" button)
-- Decrement counter by 1 ("−" button), with protection against negative values
-- Reset counter to 0
-- Change history log with timestamps
-- Haptic feedback on button presses
-- Auto-scrolling history journal
+Артём Леонов · [artemleonich](https://github.com/artemleonich)
 
-### Tech Stack
-
-- Swift
-- UIKit
-- Xcode
-- Interface Builder (Storyboard)
-- XCTest (Unit and UI tests)
-
-### Project Structure
-
-```
-Counter/
-├── Counter/
-│   ├── AppDelegate.swift       # App delegate
-│   ├── SceneDelegate.swift     # Scene delegate
-│   ├── ViewController.swift    # Main counter view controller
-│   ├── Assets.xcassets/        # Assets (icons, images)
-│   ├── Base.lproj/             # Storyboard
-│   └── Info.plist              # App configuration
-├── CounterTests/               # Unit tests
-├── CounterUITests/             # UI tests
-└── Counter.xcodeproj/          # Xcode project file
-```
-
-### Requirements
-
-- iOS 13.0+
-- Xcode 15.0+
-- Swift 5.0+
-
-### Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/artemleonich/Counter.git
-```
-
-Open the project in Xcode:
-
-```bash
-cd Counter
-open Counter.xcodeproj
-```
-
-Select a simulator or connected device and press **Run** (⌘R).
-
-### Author
-
-Artem — [GitHub](https://github.com/artemleonich)
